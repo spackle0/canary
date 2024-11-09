@@ -1,7 +1,7 @@
 # Deployment Information
 pods_status:
-  main_pods_running: #TODO: Enter number of main pods running
-  canary_pods_running: #TODO: Enter number of canary pods running
+  main_pods_running: 3
+  canary_pods_running: 1
 
 # Service Information
 service_endpoints:
@@ -10,8 +10,8 @@ service_endpoints:
 
 # Ingress Information
 ingress_details:
-  address: #TODO: Enter the Ingress controller IP address
-  host: #TODO: Enter the configured host (should be canary-demo.local)
+  address: 10.96.98.64
+  host: canary-demo.local
 
 # Metrics
 main_deployment_metrics:
@@ -44,8 +44,8 @@ rollback_test:
 
 # Error Budget Calculation (based on 99.9% SLO)
 error_budget:
-  monthly_error_budget_seconds: #TODO: Calculate and enter the monthly error budget in seconds
-  remaining_error_budget_percentage: #TODO: Enter current remaining error budget percentage
+  monthly_error_budget_seconds: 2592.0
+  remaining_error_budget_percentage: 100.00%
 
 # Additional Observations
 observations:
