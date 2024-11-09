@@ -15,8 +15,8 @@ ingress_details:
 
 # Metrics
 main_deployment_metrics:
-  http_requests_total: #TODO: Enter the value from main deployment's /metrics endpoint
-  process_cpu_seconds_total: #TODO: Enter the CPU seconds from main deployment
+  http_requests_total: 50 #TODO: Enter the value from main deployment's /metrics endpoint
+  process_cpu_seconds_total: .8 #TODO: Enter the CPU seconds from main deployment
   process_resident_memory_bytes: #TODO: Enter the memory usage from main deployment
 
 canary_deployment_metrics:
@@ -33,14 +33,14 @@ traffic_test_results:
 
 # Prometheus Queries
 prometheus_metrics:
-  main_request_rate: #TODO: Enter the result of rate(http_requests_total{version="v1"}[5m])
-  canary_request_rate: #TODO: Enter the result of rate(http_requests_total{version="v2"}[5m])
+  main_request_rate: .035 #TODO: Enter the result of rate(http_requests_total{version="v1"}[5m])
+  canary_request_rate: .005 #TODO: Enter the result of rate(http_requests_total{version="v2"}[5m])
 
 # Rollback Test
 rollback_test:
-  previous_revision: #TODO: Enter the revision number before rollback
-  rollback_command_used: #TODO: Enter the helm rollback command you used
-  time_to_rollback_seconds: #TODO: Enter how long the rollback took to complete
+  previous_revision: 1 
+  rollback_command_used: helm rollback canary-demo 1 -n canary-demo
+  time_to_rollback_seconds: 12
 
 # Error Budget Calculation (based on 99.9% SLO)
 error_budget:
